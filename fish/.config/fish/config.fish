@@ -60,3 +60,6 @@ set -gx PKG_CONFIG_PATH "/usr/local/Cellar/pcre2/10.42/lib/pkgconfig:$PKG_CONFIG
 source ~/.config/fish/lscolors.fish
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ;  # ghcup-env
+
+# Silence a false positive on ASAN
+set -gx MallocNanoZone 0

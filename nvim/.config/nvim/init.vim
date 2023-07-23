@@ -45,10 +45,15 @@ lua << EOF
   -- to query it.
   require('nightfox').setup({
     options = {
-        transparent = true,
-        styles = {
-          comments = 'italic',
-        }
+      transparent = false,
+      styles = {
+        comments = 'italic',
+      },
+    },
+    groups = {
+      nightfox = {
+        Normal = { bg = "#101017" }
+      }
     },
   })
   vim.cmd.colorscheme('nightfox')

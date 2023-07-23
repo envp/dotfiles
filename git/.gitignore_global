@@ -1,0 +1,5 @@
+default.Dockerfile
+.venv/
+# For locally installing C, C++ libs/ headers in projects same structure as /usr
+_deproot
+compile_commands.json

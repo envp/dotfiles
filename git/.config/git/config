@@ -1,0 +1,54 @@
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"
+	insteadOf = "github:"
+
+[alias]
+	s = status
+	d = diff
+	co = checkout
+	cm = commit
+	al = "!git config -l | grep alias | cut -c 7-"
+
+[push]
+	default = simple
+
+[grep]
+	lineNumber = true
+
+[core]
+	pager = delta
+	preloadindex = true
+	excludesfile = ~/.config/git/gitignore_global
+	autocrlf = input
+	editor = nvim
+
+[diff]
+	colorMoved = default
+	colorWords = true
+
+[delta]
+	light = false
+	navigate = true
+	line-numbers = true
+	true-color = always
+	hunk-header-style = omit
+	file-style = raw
+
+[interactive]
+	diffFilter = delta --color-only
+
+[user]
+	name = Vaibhav Yenamandra
+	email = 3663231+envp@users.noreply.github.com
+	signingkey = 941C01F20163C3E4
+
+[gpg]
+	program = /usr/local/bin/gpg
+[commit]
+	gpgsign = true
+[credential]
+	helper = osxkeychain
+[init]
+	defaultBranch = main
+[pull]
+	ff = only

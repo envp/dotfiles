@@ -229,7 +229,6 @@ EXPORTS.setup = function()
     sync_install = false,
     highlight = {
       enable = true,
-      disable = { "cmake" },
       additional_vim_regex_highlighting = false,
     },
   })

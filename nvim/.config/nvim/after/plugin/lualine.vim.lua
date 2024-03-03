@@ -7,23 +7,12 @@ function CreateStatusline()
   return ts_statusline
 end
 
-local function term_can_render_separators()
-  return vim.env.TERM ~= "alacritty"
-end
-
-local function try_use_separators(seps)
-  if term_can_render_separators() then
-    return seps
-  end
-  return { left = "", right = "" }
-end
-
 require("lualine").setup({
   options = {
     theme = 'auto',
     icons_enabled = false,
-    component_separators = try_use_separators({ left = "", right = "" }),
-    section_separators = try_use_separators({ left = "", right = "" }),
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
   },
   sections = {
     lualine_a = { "mode" },
@@ -32,7 +21,7 @@ require("lualine").setup({
       {
         "CreateStatusline()",
         color = "DiagnosticVirtualTextInfo",
-        separator = try_use_separators({ right = "" }),
+        separator = { right = "" },
       },
     },
     lualine_x = { "encoding", "fileformat", "filetype" },
@@ -43,6 +32,7 @@ require("lualine").setup({
     lualine_a = {
       {
         "buffers",
+        show_filename_only = false,
         mode = 4,
         use_mode_colors = true,
         symbols = {

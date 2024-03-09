@@ -1,3 +1,7 @@
+if not status --is-interactive
+  exit
+end
+
 set -g EDITOR nvim
 
 # Git prompt

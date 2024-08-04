@@ -19,7 +19,7 @@
 	pager = delta
 	preloadindex = true
 	excludesfile = ~/.config/git/gitignore_global
-	autocrlf = input
+	autocrlf = true
 	editor = nvim
 
 [diff]
@@ -27,7 +27,7 @@
 	colorWords = true
 
 [delta]
-	light = false
+	light = true
 	navigate = true
 	line-numbers = true
 	true-color = always

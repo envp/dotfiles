@@ -28,11 +28,15 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'pboettch/vim-cmake-syntax', { 'for': 'cmake' }
   Plug 'luochen1990/rainbow'
   Plug 'raimon49/requirements.txt.vim', { 'for': 'requirements' }
-  Plug 'skanehira/preview-markdown.vim', {'for': 'markdown'}
-  Plug 'vim-scripts/DoxygenToolkit.vim', {'for': [ 'c', 'cpp' ]}
+  Plug 'skanehira/preview-markdown.vim', { 'for': 'markdown' }
+  Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': [ 'c', 'cpp' ] }
   Plug 'cespare/vim-toml', {'for': 'toml'}
   Plug 'folke/which-key.nvim'
   Plug 'AndrewRadev/linediff.vim', { 'on': [ 'Linediff', 'LinediffAdd', 'LinediffLast', 'LinediffPick' ] }
+
+  " GLSL
+  Plug 'timtro/glslView-nvim', { 'for': [ 'glsl' ] }
+  Plug 'tikhomirov/vim-glsl', { 'for': [ 'glsl' ] }
 
   " Themes after here
   " Plug 'NLKNguyen/papercolor-theme'
@@ -40,7 +44,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 call plug#end()
 
 lua << EOF
-  require('options').setup( { background = "dark" })
+  require('options').setup( { background = "light" })
   -- Set up theme and overrides first in case any of the other plugins happen
   -- to query it.
   require('nightfox').setup({
@@ -56,7 +60,7 @@ lua << EOF
       }
     },
   })
-  vim.cmd.colorscheme('nightfox')
+  vim.cmd.colorscheme('dayfox')
 
   -- Configure lua based LSP
   require("lsp").setup()

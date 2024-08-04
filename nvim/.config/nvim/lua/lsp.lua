@@ -181,6 +181,7 @@ EXPORTS.setup = function()
         },
       },
     },
+    glsl_analyzer = {},
   }
 
   -- Set up language server providers
@@ -218,6 +219,7 @@ EXPORTS.setup = function()
       "cmake",
       "cpp",
       "fish",
+      "glsl",
       "haskell",
       "lua",
       "markdown",

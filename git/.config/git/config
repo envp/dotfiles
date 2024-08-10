@@ -19,7 +19,7 @@
 	pager = delta
 	preloadindex = true
 	excludesfile = ~/.config/git/gitignore_global
-	autocrlf = true
+	autocrlf = false
 	editor = nvim
 
 [diff]

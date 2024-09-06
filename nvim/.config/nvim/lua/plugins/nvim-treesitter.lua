@@ -1,0 +1,30 @@
+return {
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  config = function()
+    -- require 'nvim-treesitter.install'.compilers = { "clang" }
+    local configs = require("nvim-treesitter.configs")
+    configs.setup({
+      ensure_installed = {
+        "c",
+        "cmake",
+        "cpp",
+        "fish",
+        "glsl",
+        "haskell",
+        "lalrpop",
+        "lua",
+        "markdown",
+        "python",
+        "rust",
+        "toml",
+        "vim",
+      },
+      sync_install = false,
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
+  })
+  end
+}

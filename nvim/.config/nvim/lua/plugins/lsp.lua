@@ -1,11 +1,12 @@
-local EXPORTS = {}
+-- Collects together all code, configuration required for the builtin neovim
+-- LSP into a logical group.
 
 local function has_words_before()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-EXPORTS.setup = function()
+local configure_lsp = function()
   -- Configures nvim-lspconfig, code completion and associated items
   local cmp = require("cmp")
   local luasnip = require("luasnip")
@@ -211,30 +212,24 @@ EXPORTS.setup = function()
     update_in_insert = true,
     loclist = true,
   })
-
-  -- require 'nvim-treesitter.install'.compilers = { "clang" }
-  require("nvim-treesitter.configs").setup({
-    ensure_installed = {
-      "c",
-      "cmake",
-      "cpp",
-      "fish",
-      "glsl",
-      "haskell",
-      "lalrpop",
-      "lua",
-      "markdown",
-      "python",
-      "rust",
-      "toml",
-      "vim",
-    },
-    sync_install = false,
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = false,
-    },
-  })
 end
 
-return EXPORTS
+return {
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+    }
+  },
+  { "rafamadriz/friendly-snippets", lazy = true },
+  {
+    "neovim/nvim-lspconfig",
+    event = { "VeryLazy", "BufReadPost", "BufNewFile" },
+    cmd = { "LspInfo" },
+    config = configure_lsp,
+  }
+}

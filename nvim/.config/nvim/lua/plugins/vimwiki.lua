@@ -1,7 +1,6 @@
 local utils = require("./utils")
-local EXPORTS = {}
 
-EXPORTS.setup = function()
+local configure_vimwiki = function()
   vim.g.vimwiki_global_ext = 0
   vim.g.vimwiki_ext2syntax = vim.empty_dict()
   vim.g.vimwiki_list = {
@@ -43,4 +42,9 @@ EXPORTS.setup = function()
   })
 end
 
-return EXPORTS
+return {
+  "vimwiki/vimwiki",
+  ft = "vimwiki",
+  cmd = "VimwikiIndex",
+  config = configure_vimwiki
+}

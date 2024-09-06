@@ -221,6 +221,7 @@ EXPORTS.setup = function()
       "fish",
       "glsl",
       "haskell",
+      "lalrpop",
       "lua",
       "markdown",
       "python",

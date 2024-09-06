@@ -32,6 +32,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': [ 'c', 'cpp' ] }
   Plug 'cespare/vim-toml', {'for': 'toml'}
   Plug 'folke/which-key.nvim'
+  Plug 'folke/todo-comments.nvim'
   Plug 'AndrewRadev/linediff.vim', { 'on': [ 'Linediff', 'LinediffAdd', 'LinediffLast', 'LinediffPick' ] }
 
   " GLSL
@@ -41,26 +42,31 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Themes after here
   " Plug 'NLKNguyen/papercolor-theme'
   Plug 'EdenEast/nightfox.nvim'
+  Plug 'yorik1984/newpaper.nvim'
 call plug#end()
 
 lua << EOF
   require('options').setup( { background = "light" })
   -- Set up theme and overrides first in case any of the other plugins happen
   -- to query it.
-  require('nightfox').setup({
-    options = {
-      transparent = false,
-      styles = {
-        comments = 'italic',
-      },
-    },
-    groups = {
-      nightfox = {
-        Normal = { bg = "#101017" }
-      }
-    },
+  -- require('nightfox').setup({
+  --   options = {
+  --     transparent = false,
+  --     styles = {
+  --       comments = 'italic',
+  --     },
+  --   },
+  --   groups = {
+  --     nightfox = {
+  --       Normal = { bg = "#101017" }
+  --     }
+  --   },
+  -- })
+  -- vim.cmd.colorscheme('dayfox')
+  require('newpaper').setup({
+    italic_strings = false,
+    lualine_style = "light",
   })
-  vim.cmd.colorscheme('dayfox')
 
   -- Configure lua based LSP
   require("lsp").setup()

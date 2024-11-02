@@ -67,3 +67,6 @@ set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ;  #
 
 # Silence a false positive on ASAN
 set -gx MallocNanoZone 0
+
+# Disable auto-updates in brew, we use a separate manual notification system
+set -gx HOMEBREW_NO_AUTO_UPDATE 1

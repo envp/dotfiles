@@ -74,6 +74,13 @@ local configure_lsp = function()
     }),
   })
 
+  local custom_hover_handler = function()
+    local winid = require("ufo").peekFoldedLinesUnderCursor()
+    if not winid then
+      vim.lsp.buf.hover()
+    end
+  end
+
   -- Setup lspconfig
   local on_attach = function(_client, bufnr)
     --Enable completion triggered by <c-x><c-o>
@@ -83,7 +90,7 @@ local configure_lsp = function()
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+    vim.keymap.set("n", "K", custom_hover_handler, bufopts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
     vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
@@ -223,6 +230,7 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
+      "kevinhwang91/nvim-ufo",
     }
   },
   { "rafamadriz/friendly-snippets", lazy = true },

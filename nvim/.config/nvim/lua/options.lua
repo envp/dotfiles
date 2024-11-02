@@ -21,6 +21,12 @@ EXPORTS.setup = function(opts)
   vim.opt.number = true
   vim.opt.laststatus = 2
 
+  -- Code folding
+  vim.opt.foldcolumn = '1' -- '0' is not bad
+  vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+  vim.opt.foldlevelstart = 99
+  vim.opt.foldenable = true
+
   -- Draw a line at the 80th column
   vim.opt.colorcolumn = "80"
 

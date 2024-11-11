@@ -117,6 +117,10 @@ local configure_lsp = function()
   end
 
   local capabilities = require("cmp_nvim_lsp").default_capabilities()
+  capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+  }
 
   local lsp_setup_data = {
     rust_analyzer = {

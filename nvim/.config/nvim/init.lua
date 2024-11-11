@@ -37,6 +37,9 @@ require("lazy").setup({
         priority = 1000,
         opts = {
           italic_strings = false,
+          italic_comments = false,
+          italic_functions = false,
+          sidebars_contrast = { "Trouble" },
           lualine_style = "light",
         },
         init = function()

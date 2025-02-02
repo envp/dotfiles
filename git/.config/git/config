@@ -27,7 +27,7 @@
 	colorWords = true
 
 [delta]
-	light = true
+	light = false
 	navigate = true
 	line-numbers = true
 	true-color = always

@@ -8,7 +8,7 @@ end
 
 local lualine_opts = {
   options = {
-    theme = "dayfox",
+    theme = "auto",
     icons_enabled = false,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
@@ -31,7 +31,7 @@ local lualine_opts = {
     lualine_a = {
       {
         "buffers",
-        show_filename_only = false,
+        show_filename_only = true,
         mode = 4,
         use_mode_colors = true,
         symbols = {
@@ -60,17 +60,16 @@ local lualine_opts = {
 }
 
 return {
-  {
-    -- This is required for the lualine theme
-    "EdenEast/nightfox.nvim",
-    event = "VeryLazy",
-  },
+  -- {
+  --   -- This is required for the lualine theme
+  --   "EdenEast/nightfox.nvim",
+  --   event = "VeryLazy",
+  --   enabled = false,
+  -- },
   {
     "nvim-lualine/lualine.nvim",
     opts = lualine_opts,
-    event = "VeryLazy",
-    init = function()
-      require("nightfox").setup()
-    end
+    event = "UiEnter",
+    enabled = true,
   },
 }

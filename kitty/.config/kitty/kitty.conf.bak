@@ -1560,6 +1560,6 @@ macos_thicken_font 1.0
 
 
 # BEGIN_KITTY_THEME
-# Kanagawa
+# Adwaita dark
 include current-theme.conf
 # END_KITTY_THEME

@@ -22,7 +22,7 @@ EXPORTS.setup = function(opts)
   vim.opt.laststatus = 2
 
   -- Code folding
-  vim.opt.foldcolumn = '1' -- '0' is not bad
+  vim.opt.foldcolumn = '0' -- '0' is not bad
   vim.o.fillchars = [[eob: ,fold: ,foldopen:▾,foldsep: ,foldclose:▸]]
   vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
   vim.opt.foldlevelstart = 99
@@ -36,7 +36,7 @@ EXPORTS.setup = function(opts)
   vim.opt.wrapmargin = 0
 
   -- For linting / git plugins
-  vim.opt.signcolumn = "number"
+  vim.opt.signcolumn = "yes"
 
   -- Search related
   vim.opt.ignorecase = true

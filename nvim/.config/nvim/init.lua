@@ -30,36 +30,15 @@ require("keymaps").setup()
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    -- {
-    --     "yorik1984/newpaper.nvim",
-    --     lazy = false,
-    --     -- Ensure colorscheme is available during startup & plugin installation.
-    --     priority = 1000,
-    --     opts = {
-    --       disable_background = false,
-    --       italic_strings = false,
-    --       italic_comments = false,
-    --       italic_functions = false,
-    --       sidebars_contrast = { "Trouble" },
-    --       style = "dark",
-    --     },
-    --     init = function()
-    --       vim.cmd.colorscheme("newpaper")
-    --     end
-    -- },
-    -- {
-    --   "sainnhe/gruvbox-material",
-    --   lazy = false,
-    --   priority = 1000,
-    --   init = function ()
-    --     vim.cmd.colorscheme("gruvbox-material")
-    --   end
-    -- },
     {
       "rebelot/kanagawa.nvim",
       lazy = false,
       priority = 1000,
-      opts = {},
+      opts = {
+        commentStyle = { italic = false },
+        keywordStyle = { italic = false },
+      },
+      theme = "dragon",
       init = function ()
         vim.cmd.colorscheme("kanagawa")
       end

@@ -1,7 +1,7 @@
 return {
   {
     'junegunn/fzf.vim',
-    enable = false,
+    enabled = false,
     build = ":call fzf#install()",
     dependencies = { "junegunn/fzf" },
     keys = {
